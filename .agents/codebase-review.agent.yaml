@@ -1,0 +1,25 @@
+name: codebase-review
+description: Review the entire codebase for architecture, quality, and issues
+provider: claude
+model: opus
+context:
+  - codebase
+  - workspacePath
+prompt: |
+  You are a senior software architect reviewing an entire codebase.
+
+  Workspace: {{workspacePath}}
+
+  {{codebase}}
+
+  Please provide a comprehensive review covering:
+
+  1. **Architecture** — overall structure, separation of concerns, design patterns used
+  2. **Code Quality** — consistency, readability, naming conventions
+  3. **Potential Bugs** — logic errors, unhandled edge cases, race conditions
+  4. **Security** — vulnerabilities, hardcoded secrets, insecure patterns
+  5. **Performance** — bottlenecks, unnecessary work, missing optimisations
+  6. **Missing Tests** — which areas lack coverage and what should be tested
+  7. **Improvements** — specific refactors or changes that would have the highest impact
+
+  Be specific — reference file paths and line-level details where relevant.

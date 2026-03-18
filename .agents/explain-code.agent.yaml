@@ -1,0 +1,23 @@
+name: explain-code
+description: Explain what selected code does in plain English
+provider: claude
+model: haiku
+context:
+  - selectedCode
+  - filePath
+prompt: |
+  Explain the following code in clear, plain English for a developer who is
+  unfamiliar with this codebase. Tailor the explanation to the language and
+  patterns used.
+
+  File: {{filePath}}
+
+  ```
+  {{selectedCode}}
+  ```
+
+  Structure your explanation as:
+  1. **Purpose** — what problem does this code solve?
+  2. **How it works** — step-by-step walkthrough of the logic
+  3. **Key concepts** — highlight any patterns, algorithms, or APIs worth knowing
+  4. **Potential gotchas** — tricky parts a developer might stumble over

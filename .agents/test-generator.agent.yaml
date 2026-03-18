@@ -1,0 +1,27 @@
+name: test-generator
+description: Generate comprehensive unit tests for selected code
+provider: claude
+model: sonnet
+context:
+  - selectedCode
+  - filePath
+prompt: |
+  You are an expert software engineer specializing in test-driven development.
+  Generate a comprehensive test suite for the code below.
+
+  File: {{filePath}}
+
+  Code:
+  ```
+  {{selectedCode}}
+  ```
+
+  Requirements:
+  - Detect the testing framework used in the project (Jest, Vitest, Pytest, Go test, etc.)
+    and match its conventions. If uncertain, use the most common framework for the language.
+  - Cover: happy paths, edge cases, boundary values, error handling, and async behavior.
+  - Use descriptive test names that document the expected behavior.
+  - Add a brief comment above each test group explaining what is being tested.
+  - Aim for ≥ 90% branch coverage.
+
+  Output only the test file content, ready to copy-paste.

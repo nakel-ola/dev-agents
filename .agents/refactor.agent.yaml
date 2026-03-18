@@ -1,0 +1,29 @@
+name: refactor
+description: Refactor selected code for clarity, maintainability, and modern idioms
+provider: codex
+model: gpt-5.4
+context:
+  - selectedCode
+  - filePath
+prompt: |
+  Refactor the following code to improve clarity, reduce complexity, and apply
+  modern idiomatic patterns for the detected language.
+
+  File: {{filePath}}
+
+  Original code:
+  ```
+  {{selectedCode}}
+  ```
+
+  Rules:
+  - Preserve all existing behavior and public interfaces
+  - Do not introduce new dependencies unless clearly beneficial
+  - Prefer composition over inheritance
+  - Extract magic numbers and strings into named constants
+  - Improve variable and function names where they are unclear
+  - Break down functions longer than 30 lines into smaller units
+
+  Output:
+  1. The refactored code block (ready to replace the original)
+  2. A short bullet list of changes made and why

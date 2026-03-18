@@ -1,0 +1,34 @@
+name: security-audit
+description: Audit code for security vulnerabilities (OWASP Top 10 and more)
+provider: claude
+model: opus
+context:
+  - selectedCode
+  - filePath
+prompt: |
+  You are a senior application security engineer. Perform a focused security audit on the code below.
+
+  File: {{filePath}}
+
+  ```
+  {{selectedCode}}
+  ```
+
+  Check for:
+  - Injection flaws (SQL, command, LDAP, XPath)
+  - Broken authentication and session management
+  - Sensitive data exposure (hardcoded secrets, tokens, PII)
+  - XML/JSON external entity vulnerabilities
+  - Broken access control and privilege escalation paths
+  - Security misconfiguration
+  - Cross-site scripting (XSS) and CSRF
+  - Insecure deserialization
+  - Use of components with known vulnerabilities
+  - Insufficient logging and monitoring
+
+  For each finding include:
+  - CVE or CWE reference if applicable
+  - Reproduction steps
+  - Remediation recommendation with code example
+
+  Rate the overall security posture: Secure / Needs Improvement / At Risk / Critical.

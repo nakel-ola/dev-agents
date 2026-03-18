@@ -1,0 +1,6 @@
+agent: pr-review
+description: End-to-end pull request review — code quality, security, and documentation
+steps:
+  - run: code-review
+  - run: security-audit
+  - run: test-generator

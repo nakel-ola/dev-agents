@@ -1,0 +1,33 @@
+name: code-review
+description: Review code for bugs, performance issues, and security problems
+provider: claude
+model: opus
+context:
+  - selectedCode
+  - filePath
+  - gitDiff
+prompt: |
+  You are an expert code reviewer. Analyze the following code and provide a structured review.
+
+  File: {{filePath}}
+
+  Code to review:
+  ```
+  {{selectedCode}}
+  ```
+
+  {{gitDiff}}
+
+  Please review for:
+  1. **Bugs** — logic errors, edge cases, off-by-one errors
+  2. **Performance** — inefficient algorithms, unnecessary allocations, blocking calls
+  3. **Security** — injection vulnerabilities, insecure defaults, exposed secrets
+  4. **Readability** — naming, complexity, missing comments on non-obvious logic
+  5. **Best practices** — idiomatic patterns for the detected language
+
+  For each finding:
+  - Severity: 🔴 Critical / 🟠 High / 🟡 Medium / 🟢 Low
+  - Description of the issue
+  - Suggested fix with a code snippet where applicable
+
+  Finish with a brief overall assessment and a score out of 10.

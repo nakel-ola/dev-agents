@@ -1,0 +1,25 @@
+name: doc-writer
+description: Write JSDoc / docstring documentation for selected functions or classes
+provider: gemini
+model: gemini-2.5-pro
+context:
+  - selectedCode
+  - filePath
+prompt: |
+  Write complete documentation comments for the following code.
+
+  File: {{filePath}}
+
+  ```
+  {{selectedCode}}
+  ```
+
+  Guidelines:
+  - Detect the language and use its standard documentation format
+    (JSDoc for JavaScript/TypeScript, docstrings for Python, godoc for Go, etc.)
+  - Document every exported function, method, class, and type.
+  - For each function include: description, @param, @returns, @throws (if applicable),
+    and a usage @example.
+  - Be concise but complete — avoid restating what the code already makes obvious.
+
+  Output the fully-documented version of the code, ready to drop in.

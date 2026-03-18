@@ -1,0 +1,360 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--vscode-font-family);
+  font-size: 13px;
+  color: var(--vscode-foreground);
+  background: var(--vscode-editor-background);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Top bar ─────────────────────────────────────────────────── */
+.topbar {
+  flex-shrink: 0;
+  background: transparent;
+}
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  height: 44px;
+}
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+.brand-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.brand-name {
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.1px;
+}
+.topbar-page {
+  font-size: 12px;
+  color: var(--vscode-descriptionForeground);
+  font-weight: 500;
+}
+
+/* ── Scrollable page ─────────────────────────────────────────── */
+.page {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px 28px 48px;
+}
+
+/* ── Card ────────────────────────────────────────────────────── */
+.card {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Sections ────────────────────────────────────────────────── */
+.section {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--vscode-descriptionForeground);
+}
+.section-desc {
+  font-size: 12px;
+  color: var(--vscode-descriptionForeground);
+  line-height: 1.55;
+}
+.section-desc code {
+  font-family: var(--vscode-editor-font-family);
+  font-size: 11px;
+  background: var(--vscode-textCodeBlock-background, rgba(128, 128, 128, 0.15));
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+.divider {
+  height: 1px;
+  background: var(--vscode-widget-border, rgba(128, 128, 128, 0.2));
+}
+
+/* ── Two-column detail row ───────────────────────────────────── */
+.row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ── Field ───────────────────────────────────────────────────── */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.field-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--vscode-foreground);
+}
+.req {
+  color: var(--vscode-inputValidation-errorBorder, #f14c4c);
+}
+.field-hint {
+  font-size: 11px;
+  color: var(--vscode-descriptionForeground);
+}
+.field-error {
+  font-size: 11px;
+  color: var(--vscode-inputValidation-errorBorder, #f14c4c);
+  min-height: 15px;
+}
+
+/* ── Inputs ──────────────────────────────────────────────────── */
+.input {
+  background: var(--vscode-input-background);
+  border: 1px solid var(--vscode-input-border, rgba(128, 128, 128, 0.4));
+  color: var(--vscode-input-foreground);
+  border-radius: 5px;
+  padding: 7px 10px;
+  font-family: var(--vscode-font-family);
+  font-size: 13px;
+  outline: none;
+  width: 100%;
+  transition: border-color 120ms;
+}
+.input:focus {
+  border-color: var(--vscode-focusBorder);
+}
+.input.error-state {
+  border-color: var(--vscode-inputValidation-errorBorder, #f14c4c);
+}
+.textarea {
+  resize: vertical;
+  font-family: var(--vscode-editor-font-family);
+  font-size: 12px;
+  line-height: 1.6;
+  min-height: 180px;
+}
+.select {
+  cursor: pointer;
+}
+
+/* ── Kind toggle ─────────────────────────────────────────────── */
+.toggle-group {
+  display: flex;
+  gap: 6px;
+}
+.toggle {
+  padding: 6px 20px;
+  border-radius: 6px;
+  border: 1px solid var(--vscode-button-border, rgba(128, 128, 128, 0.3));
+  background: var(--vscode-button-secondaryBackground);
+  color: var(--vscode-button-secondaryForeground);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition:
+    background 120ms,
+    color 120ms,
+    border-color 120ms;
+}
+.toggle.active {
+  background: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+  border-color: var(--vscode-button-background);
+}
+
+/* ── Provider cards ──────────────────────────────────────────── */
+.provider-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.provider-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 14px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--vscode-widget-border, rgba(128, 128, 128, 0.3));
+  cursor: pointer;
+  text-align: center;
+  transition:
+    border-color 140ms,
+    background 140ms;
+}
+.provider-card:hover {
+  border-color: var(--vscode-focusBorder);
+}
+.provider-card.active {
+  border-color: var(--vscode-button-background);
+  background: color-mix(
+    in srgb,
+    var(--vscode-button-background) 10%,
+    transparent
+  );
+}
+.provider-name {
+  font-weight: 700;
+  font-size: 14px;
+}
+.provider-sub {
+  font-size: 11px;
+  color: var(--vscode-descriptionForeground);
+}
+
+/* ── Context checkboxes ──────────────────────────────────────── */
+.ctx-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.ctx-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    background 120ms,
+    border-color 120ms;
+}
+.ctx-item:hover {
+  background: var(--vscode-list-hoverBackground);
+}
+.ctx-item input {
+  margin-top: 2px;
+  accent-color: var(--vscode-button-background);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.ctx-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ctx-key {
+  font-family: var(--vscode-editor-font-family);
+  font-size: 12px;
+  font-weight: 600;
+}
+.ctx-desc {
+  font-size: 11px;
+  color: var(--vscode-descriptionForeground);
+  line-height: 1.4;
+}
+
+/* ── Workflow steps ──────────────────────────────────────────── */
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.step-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.step-num {
+  font-size: 11px;
+  color: var(--vscode-descriptionForeground);
+  width: 20px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.step-row .input {
+  flex: 1;
+}
+.step-remove {
+  background: none;
+  border: none;
+  color: var(--vscode-descriptionForeground);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0 4px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  transition: color 120ms;
+}
+.step-remove:hover {
+  color: var(--vscode-inputValidation-errorBorder, #f14c4c);
+}
+.add-step-btn {
+  align-self: flex-start;
+  margin-top: 4px;
+  background: none;
+  border: 1px dashed var(--vscode-widget-border, rgba(128, 128, 128, 0.4));
+  color: var(--vscode-descriptionForeground);
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 12px;
+  transition:
+    border-color 120ms,
+    color 120ms;
+}
+.add-step-btn:hover {
+  border-color: var(--vscode-focusBorder);
+  color: var(--vscode-foreground);
+}
+
+/* ── Actions ─────────────────────────────────────────────────── */
+.actions {
+  display: flex;
+  gap: 10px;
+  padding-top: 20px;
+  padding-bottom: 4px;
+}
+.btn-primary {
+  padding: 8px 28px;
+  background: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13px;
+  transition: opacity 120ms;
+}
+.btn-primary:hover {
+  opacity: 0.85;
+}
+.btn-ghost {
+  padding: 8px 18px;
+  background: none;
+  color: var(--vscode-descriptionForeground);
+  border: 1px solid var(--vscode-widget-border, rgba(128, 128, 128, 0.35));
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition:
+    color 120ms,
+    border-color 120ms;
+}
+.btn-ghost:hover {
+  color: var(--vscode-foreground);
+  border-color: var(--vscode-focusBorder);
+}
