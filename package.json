@@ -6,6 +6,18 @@
   "publisher": "devagents",
   "icon": "media/devagents.png",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nakel-ola/dev-agents.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nakel-ola/dev-agents/issues"
+  },
+  "homepage": "https://github.com/nakel-ola/dev-agents#readme",
+  "galleryBanner": {
+    "color": "#0f0f11",
+    "theme": "dark"
+  },
   "engines": {
     "vscode": "^1.96.0"
   },
@@ -22,12 +34,7 @@
     "workflow"
   ],
   "activationEvents": [
-    "onStartupFinished",
-    "onCommand:devagents.runAgent",
-    "onCommand:devagents.runAgentOnSelection",
-    "onCommand:devagents.createAgent",
-    "onCommand:devagents.openAgentPanel",
-    "onView:devagents.sidebar"
+    "onStartupFinished"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -229,6 +236,7 @@
     "clsx": "^2.1.1",
     "esbuild": "^0.27.4",
     "lucide-react": "^0.577.0",
+    "ovsx": "^0.10.9",
     "preact": "^10.29.0",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.1",

@@ -1,5 +1,27 @@
+# Dev / build tooling — not needed at runtime
+.vscode/**
+.claude/**
 .gitignore
-README.md
-tsconfig.json
+.agents/**
 src/**
+esbuild.mjs
+tsconfig.json
+components.json
+package-lock.json
+
+# Test / CI
+.github/**
+
+# Generated maps (keep .js and .css, drop source maps)
 media/**/*.map
+dist/**/*.map
+
+# Dependencies (extension bundles everything it needs)
+node_modules/**
+
+# Screenshots / raw assets used only during development
+Screenshot*
+*.png.source
+
+# Editor artifacts
+**/.DS_Store
